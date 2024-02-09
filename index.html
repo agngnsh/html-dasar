@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- create fom html -->
+    <form action="/create_product" method="post" enctype="multipart/form-data"> 
+        @csrf
+        Product Name: <input type="text" name="name"><br><br>
+        Description: <textarea name="description"></textarea><br><br>
+        Price: <input type="number" name="price"><br><br>
+        Image: <input type="file" name="image"><br><br>
+        Category:  
+        <select name="category_id">
+            @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+        </select><br><br>
+    </form>    
+    
+</body>
+</html>
